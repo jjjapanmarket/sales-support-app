@@ -1,4 +1,4 @@
-package entity;
+package com.example.salessupportapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class Customer {
     private String memo;
     private String todo;
 
-    // --- ここから下は「コンストラクタ」や「Getter/Setter」という部品
+    // --- ここから下は「コンストラクタ」や「Getter/Setter」
 
     public Customer() {}
 
