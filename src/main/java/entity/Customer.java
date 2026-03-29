@@ -18,8 +18,7 @@ public class Customer {
     private String memo;
     private String todo;
 
-    // --- ここから下は「コンストラクタ」や「Getter/Setter」という部品になります ---
-    // 今は「おまじない」だと思って貼り付けてOKです！
+    // --- ここから下は「コンストラクタ」や「Getter/Setter」という部品
 
     public Customer() {}
 
