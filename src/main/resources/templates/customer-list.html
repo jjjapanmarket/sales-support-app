@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>顧客一覧</title>
+</head>
+<body>
+<h1>営業支援アプリ：顧客一覧</h1>
+
+<table style="border: 1px solid black; border-collapse: collapse;">
+    <thead>
+    <tr style="border: 1px solid black;">
+        <th style="border: 1px solid black; padding: 8px;">ID</th>
+        <th style="border: 1px solid black; padding: 8px;">名前</th>
+        <th style="border: 1px solid black; padding: 8px;">メールアドレス</th>
+        <th style="border: 1px solid black; padding: 8px;">用件（Todo）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c : ${customers}" style="border: 1px solid black;">
+        <td th:text="${c.id}" style="border: 1px solid black; padding: 8px;">1</td>
+        <td th:text="${c.name}" style="border: 1px solid black; padding: 8px;">名前</td>
+        <td th:text="${c.email}" style="border: 1px solid black; padding: 8px;">メール</td>
+        <td th:text="${c.todo}" style="border: 1px solid black; padding: 8px;">TODO</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
