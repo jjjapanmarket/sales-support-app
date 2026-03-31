@@ -1,0 +1,75 @@
+/* 全体の設定 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 40px;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* テーブルをかっこよく */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* 1行おきに色を変える */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* マウスを乗せると光る */
+tbody tr:hover {
+    background-color: #e8f4fd;
+    transition: 0.3s;
+}
+
+/* ボタンを「ポチッ」としたくなるデザインに */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2ecc71;
+}
+
+/* 入力フォームの枠 */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* 枠線がはみ出さない設定 */
+}
