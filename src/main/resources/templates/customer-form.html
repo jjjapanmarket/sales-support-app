@@ -12,9 +12,20 @@
         <label>名前：</label>
         <input type="text" th:field="*{name}" />
     </div>
+
     <div>
         <label>用件：</label>
         <input type="text" th:field="*{todo}" />
+    </div>
+
+    <div>
+        <label>メールアドレス：</label>
+        <input type="email" th:field="*{email}" />
+    </div>
+
+    <div>
+        <label>電話番号：</label>
+        <input type="text" th:field="*{phone}" />
     </div>
     <button type="submit">登録する</button>
 </form>
@@ -22,4 +33,4 @@
 <br>
 <a href="/customers">一覧に戻る</a>
 </body>
-</html>
+</html>s

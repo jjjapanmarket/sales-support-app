@@ -7,6 +7,9 @@
 <body>
 <h1>営業支援アプリ：顧客一覧</h1>
 
+<a href="/customers/new">新規顧客を登録する</a>
+<br><br>
+
 <table style="border: 1px solid black; border-collapse: collapse;">
     <thead>
     <tr style="border: 1px solid black;">
@@ -14,7 +17,7 @@
         <th style="border: 1px solid black; padding: 8px;">名前</th>
         <th style="border: 1px solid black; padding: 8px;">メールアドレス</th>
         <th style="border: 1px solid black; padding: 8px;">用件（Todo）</th>
-    </tr>
+        <th style="border: 1px solid black; padding: 8px;">電話番号</th> </tr>
     </thead>
     <tbody>
     <tr th:each="c : ${customers}" style="border: 1px solid black;">
@@ -22,7 +25,7 @@
         <td th:text="${c.name}" style="border: 1px solid black; padding: 8px;">名前</td>
         <td th:text="${c.email}" style="border: 1px solid black; padding: 8px;">メール</td>
         <td th:text="${c.todo}" style="border: 1px solid black; padding: 8px;">TODO</td>
-    </tr>
+        <td th:text="${c.phone}" style="border: 1px solid black; padding: 8px;">電話番号</td> </tr>
     </tbody>
 </table>
 </body>
