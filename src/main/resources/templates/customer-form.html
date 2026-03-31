@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>顧客登録</title>
+</head>
+<body>
+<h1>新規顧客登録</h1>
+
+<form th:action="@{/customers}" th:object="${customer}" method="post">
+    <div>
+        <label>名前：</label>
+        <input type="text" th:field="*{name}" />
+    </div>
+    <div>
+        <label>用件：</label>
+        <input type="text" th:field="*{todo}" />
+    </div>
+    <button type="submit">登録する</button>
+</form>
+
+<br>
+<a href="/customers">一覧に戻る</a>
+</body>
+</html>

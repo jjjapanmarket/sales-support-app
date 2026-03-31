@@ -5,30 +5,41 @@ import com.example.salessupportapp.repository.CustomerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping; // ★これが必要！
 
 import java.util.List;
 
-@Controller // 「これが画面制御の担当ですよ」という目印
+@Controller
 public class CustomerController {
 
     private final CustomerRepository repository;
 
-    // 道具箱（Repository）を使えるように準備
     public CustomerController(CustomerRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/customers") // ブラウザで localhost:8080/customers を開いた時の処理
+    // 1. 一覧表示
+    @GetMapping("/customers")
     public String listCustomers(Model model) {
-        // 1. DBから全データを取ってくる
         List<Customer> customers = repository.findAll();
-
-        // 2. 画面（HTML）にデータを渡すための「荷札」をつける
         model.addAttribute("customers", customers);
-
-        // 3. 表示するHTMLファイルの名前を指定
         return "customer-list";
     }
+
+    // 2. 登録画面を表示
+    @GetMapping("/customers/new")
+    public String newCustomer(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "customer-form";
+    }
+
+    // 3. データを保存
+    @PostMapping("/customers")
+    public String saveCustomer(Customer customer) {
+        repository.save(customer);
+        return "redirect:/customers";
+    }
+
 }
 
 //@Controller
@@ -50,3 +61,5 @@ public class CustomerController {
 //return "customer-list";
 //イメージ： 「では、あちらの『customer-list』という席へご案内します」という案内。
 //役割： 次に表示するHTMLファイルの名前を指定しています。
+
+
