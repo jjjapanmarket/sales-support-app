@@ -54,6 +54,21 @@ public class CustomerController {
         repository.deleteById(id);
         return "redirect:/customers";
     }
+    // 1. 編集画面を表示する（中身が入った状態のフォーム）
+    @GetMapping("/customers/{id}/edit")
+    public String editCustomer(@PathVariable Long id, Model model) {
+        Customer customer = repository.findById(id).orElseThrow();
+        model.addAttribute("customer", customer); // 既存のデータを入れて渡す
+        return "customer-form"; // 登録で使ったフォームを再利用！
+    }
+
+    // 2. 更新を実行する
+    @PostMapping("/customers/{id}/update")
+    public String updateCustomer(@PathVariable Long id, Customer customer) {
+        customer.setId(id); // IDを固定して保存することで「上書き」になる
+        repository.save(customer);
+        return "redirect:/customers/" + id; // 更新後は詳細画面へ戻る
+    }
 }
 
 //@Controller
