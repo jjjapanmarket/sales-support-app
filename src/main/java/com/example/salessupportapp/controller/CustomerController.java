@@ -5,7 +5,8 @@ import com.example.salessupportapp.repository.CustomerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping; // ★これが必要！
+import org.springframework.web.bind.annotation.PathVariable; // ★必須！
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class CustomerController {
         this.repository = repository;
     }
 
-    // 1. 一覧表示
+    // 一覧表示
     @GetMapping("/customers")
     public String listCustomers(Model model) {
         List<Customer> customers = repository.findAll();
@@ -26,20 +27,33 @@ public class CustomerController {
         return "customer-list";
     }
 
-    // 2. 登録画面を表示
+    // 登録画面を表示
     @GetMapping("/customers/new")
     public String newCustomer(Model model) {
         model.addAttribute("customer", new Customer());
         return "customer-form";
     }
 
-    // 3. データを保存
+    // データを保存
     @PostMapping("/customers")
     public String saveCustomer(Customer customer) {
         repository.save(customer);
         return "redirect:/customers";
     }
 
+    // ★詳細画面を表示
+    @GetMapping("/customers/{id}")
+    public String showDetail(@PathVariable Long id, Model model) {
+        Customer customer = repository.findById(id).orElseThrow();
+        model.addAttribute("customer", customer);
+        return "customer-detail";
+    }
+    // 削除処理
+    @PostMapping("/customers/{id}/delete")
+    public String deleteCustomer(@PathVariable Long id) {
+        repository.deleteById(id);
+        return "redirect:/customers";
+    }
 }
 
 //@Controller

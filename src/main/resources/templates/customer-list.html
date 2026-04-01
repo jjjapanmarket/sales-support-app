@@ -23,7 +23,9 @@
     <tbody>
     <tr th:each="c : ${customers}" style="border: 1px solid black;">
         <td th:text="${c.id}" style="border: 1px solid black; padding: 8px;">1</td>
-        <td th:text="${c.name}" style="border: 1px solid black; padding: 8px;">名前</td>
+        <td style="border: 1px solid black; padding: 8px;">
+            <a th:href="@{/customers/{id}(id=${c.id})}" th:text="${c.name}">名前</a>
+        </td>
         <td th:text="${c.email}" style="border: 1px solid black; padding: 8px;">メール</td>
         <td th:text="${c.todo}" style="border: 1px solid black; padding: 8px;">TODO</td>
         <td th:text="${c.phone}" style="border: 1px solid black; padding: 8px;">電話番号</td> </tr>
